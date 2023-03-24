@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Application</title>
+  <script>
+    function getData(){
+      var cityname= document.getElementById("city").value;
+      
+      
+      const url="https://api.openweathermap.org/data/2.5/weather?q="
+      +cityname+
+      "&units=metric&appid=d5b3d6e48d01d636021831a1987b281f";
+      fetch(url).then((res)=>
+      res.json()).then((data)=>{
+      console.log(data.main.temp);
+      console.log(data.main.temp_min);
+      console.log(data.main.temp_max);
+      console.log(data.main.humidity);
+      console.log(data.main.pressure);
+      var temp = "Temp : " + data.main.temp + " degree";
+      var temp_min = "Temp_min : " + data.main.temp_min + " degree";
+      var temp_max = "Temp_max : " + data.main.temp_max + " degree";
+      var humidity = "Humidity : " + data.main.humidity + "%";
+      var pressure ="Pressure :" + data.main.pressure +"hpa"
+
+    var currentWeatherElement = document.getElementById("currentWeather");
+    currentWeatherElement.innerHTML = temp + "<br>" +temp_min+ "<br>" +temp_max+ "<br>" + humidity + "<br>" +pressure;
+  });
+      }
+      
+
+  </script>
+
+  <style>
+    body{
+      margin:0;
+      padding:0;
+      background-color:#efefef;
+    }
+
+    .container{
+      border-radius:20px ;
+      margin-left:auto;
+      margin-right:auto;
+      margin-top:10%;
+      width:450px;
+      height:300px;
+      padding:50px;
+      background-color:rgba(0,0,0,0.3);
+      font-size: 18px;
+      color:dodgerblue;
+      
+    }
+    @media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    max-width: 90%;
+  }
+}
+    h5{
+      color:black;
+    }
+
+    #city{
+      margin-left: 20px;
+      width:230px;
+      border:2px solid dodgerblue;
+      height:30px;
+      border-radius:10px;
+      padding-left: 10px;
+     
+    }
+    .weather{
+      margin-top:30px;
+      margin-left: 140px;
+      margin-right:auto;
+      width:fit-content;
+      
+    }
+    #currentWeather{
+      margin-left:30px;
+      margin-top:30px;
+      font-size:15px;
+      color:white;
+      font-weight: normal;
+      
+
+      
+    }
+    .action{
+      background-color: dodgerblue;
+      width: 180px;
+      height:30px;
+      border-radius:10px;
+      border:none;
+      margin-left:110px;
+      margin-right:auto;
+      margin-top:80px;
+      cursor:pointer;
+      font-size:15px;
+
+    }
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop>
+    <source src="img/my video.mp4" type="video/mp4">
+  </video>
+
+  <div class="container">
+  Enter City Name :<input type="text" id="city" placeholder="city"/>
+  <br />
+  <div class="weather">
+    <img src="img/weather.jpg"
+    height:50px
+    width:50px
+    />
+    <h5 id="currentWeather">Current Weather</h5>
+    
+    </div>
+    <button class="action" onclick="getData()">Get Details</button>
+  </div>
+</body>
+</html>
