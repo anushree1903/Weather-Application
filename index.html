@@ -38,7 +38,8 @@
     body{
       margin:0;
       padding:0;
-      background-color:#efefef;
+      background: rgb(255,171,171);
+background: linear-gradient(90deg, rgba(255,171,171,1) 0%, rgba(135,77,255,1) 59%, rgba(20,193,228,1) 100%);
     }
 
     .container{
@@ -49,9 +50,10 @@
       width:450px;
       height:300px;
       padding:50px;
-      background-color:rgba(0,0,0,0.3);
-      font-size: 18px;
-      color:dodgerblue;
+      background-color:rgba(0,0,0,0.7);
+      font-size: 20px;
+      color:white;
+      font-weight: s;
       
     }
     @media (max-width: 768px) {
@@ -86,7 +88,8 @@
     #currentWeather{
       margin-left:30px;
       margin-top:30px;
-      font-size:15px;
+      font-size:18px;
+      line-height: 30px;
       color:white;
       font-weight: normal;
       
@@ -95,41 +98,28 @@
     }
     .action{
       background-color: dodgerblue;
-      width: 180px;
+      width: 120px;
       height:30px;
       border-radius:10px;
       border:none;
-      margin-left:110px;
+      margin-left:170px;
       margin-right:auto;
-      margin-top:80px;
+      margin-top:20px;
       cursor:pointer;
       font-size:15px;
 
     }
-    video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
+  
   </style>
 </head>
 <body>
-  <video autoplay muted loop>
-    <source src="img/my video.mp4" type="video/mp4">
-  </video>
+  
 
   <div class="container">
-  Enter City Name :<input type="text" id="city" placeholder="city"/>
+  Enter City Name :<input type="text" id="city" placeholder="enter the city"/>
   <br />
   <div class="weather">
-    <img src="img/weather.jpg"
-    height:50px
-    width:50px
-    />
+   
     <h5 id="currentWeather">Current Weather</h5>
     
     </div>
